@@ -10,10 +10,13 @@ pipeline {
         // }
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh 'npm install'
-                sh 'pwd'
-                sh 'node -v'
+                nodejs('node12') {
+                    echo 'Building..'
+                    sh 'npm install'
+                    sh 'pwd'
+                    sh 'node -v'
+                }
+                
             }
         }
         stage('Test') {
